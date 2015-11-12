@@ -21,7 +21,9 @@ void setup() {
 
   //velX = random(-5, 5);
   //velY = random(-5, 5);
-  vel = new PVector(random(-5, 5), random(-5, 5));  //initialize vel. replaces initializing velX and velY
+  //vel = new PVector(random(-5, 5), random(-5, 5));  //initialize vel. replaces initializing velX and velY
+  vel = PVector.random2D();  //creating a random 2D vector with a magnitude of 1
+  vel.mult(5);    //multiply vel by 5
 }
 
 void draw() {
@@ -32,8 +34,9 @@ void draw() {
   ellipse(loc.x, loc.y, diam, diam);
 
   //add velocity to position
-  loc.x += vel.x;
-  loc.y += vel.y;
+  //loc.x += vel.x;
+  //loc.y += vel.y;
+  loc.add(vel);  //this line will add vel to loc
 
   //bounce ball if it hits walls
   if (loc.x + diam/2 >= width) {
