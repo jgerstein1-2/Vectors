@@ -7,15 +7,18 @@ void setup() {
   size(800, 600);
 
   //initialize variables
-  
+
   diam = 80;
-  loc = new PVector(random(diam,width-diam),random(diam,height-diam));
+  loc = new PVector(random(diam, width-diam), random(diam, height-diam));
   vel = PVector.random2D();
 }
 
 void draw() {
   //draw background to cover previous frame
   background(0);
+
+  vel = PVector.random2D();
+  vel.mult(random(.5, 2));
 
   //draw ball
   ellipse(loc.x, loc.y, diam, diam);
